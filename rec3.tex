@@ -5,11 +5,10 @@
   \author{Song Bo 11302010003}
 \begin{document} 
   \maketitle 
- \section*{1 MapReduce}
- \section*{1.1 Motivation}
+ \section*{1~~~~Motivation}
  Suppose we want to solve a large scale problem and we have a lot of machines, how can we do it efficiently? MapReduce technology gives us a model that divide a big problem into many small problems in order to improve parallelism among many machines. The big problem and small problems are assemble in essence, but differs from each other in  scale.
- \section*{1.2 Implementation}
- \section*{1.2.1 Interfaces}
+ \section*{2~~~~Implementation}
+ \section*{2.1~~~~Interfaces}
  There are two operations that the user must define:
  \begin{itemize}
  \item \textbf{Map} - Take an input pair and produces a set of intermediate key/value pairs.
@@ -23,7 +22,7 @@
  \item \textbf{Compare Function} - Used in sorting in Reduce.
  \item \textbf{Combiner Function} - An optimized reduce function running after map and running on map machine.
  \end{itemize}
- \section*{1.2.2 Exection}
+ \section*{2.2~~~~Execution}
  There are seven main steps:
  \begin{itemize}
  \item \textbf{1} Divide program inputs and fork.
@@ -35,18 +34,6 @@
  \item \textbf{7} The master wakes up user program.
  \end{itemize}
  Except for main execution steps, the system deals with worker and master failure properly and skips bad records.
- \section*{2 Redundant Arrays of Inexpensive Disks}
- \section*{2.1 Motivation}
- An individual high Performance and big size disk is very expensive and there is a big gap between CPU improvement rate and IO improvement rate. The RAID technology aims to use several low-power, small size and inexpensive disks to accomplish the same or better performance.
- \section*{2.2 Implementation}
- \begin{itemize}
- \item \textbf{AID} - Arrays of inexpensive disks. High performance and very poor reliability(MTTF is only 300 hours).
- \item \textbf{RAID level1} - Mirrored disk. High access time and reliability. Duplicating data leads to low storage utilization.
- \item \textbf{RAID level2} - Using hamming code which requires several chips to check data. It is suitable for huge data transfers.
- \item \textbf{RAID level3} - Using single check disk which contains ECC. Relative high performance and low reliability overhead.
- \item \textbf{RAID level4} - Using independent read or write which use check disk every time. Good for small writes and check disk is bottleneck.
- \item \textbf{RAID level5} - Distributing data and check information to all the disks to reduce check disk bottleneck. However, the write operation will cost actually four read and write operations.
- \end{itemize}
  \section*{3 Summary and Thoughts}
- Managing failure situation in the both two papers impresses me most. With the increasing of  the scale of modern system, the occurrence and importance of different kinds of failure beyonds my belief. In MapReduce, disk failure may happen every minute among thousands of disk. In RAID, the MTTF becomes a main problem to solve and has pushed the development of RAID level by level.
+ Managing failure situation in the papers impresses me most. With the increasing of  the scale of modern system, the occurrence and importance of different kinds of failure beyonds my belief. In MapReduce, disk failure may happen every minute among thousands of disk. \\[1em]
 \end{document} 

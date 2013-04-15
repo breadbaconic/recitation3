@@ -1,0 +1,22 @@
+\documentclass[12pt]{article}
+\usepackage{geometry}
+\geometry{left=2.5cm,right=2.5cm,top=1.5cm,bottom=2.5cm}
+  \title{Recitation 4} 
+  \author{Song Bo 11302010003}
+\begin{document} 
+  \maketitle 
+ \section*{2.1 Motivation}
+ An individual high Performance and big size disk is very expensive and there is a big gap between CPU improvement rate and IO improvement rate. The RAID technology aims to use several low-power, small size and inexpensive disks to accomplish the same or better performance.
+ \section*{2.2 Implementation}
+ \begin{itemize}
+ \item \textbf{AID} - Arrays of inexpensive disks. High performance and very poor reliability(MTTF is only 300 hours).
+ \item \textbf{RAID level1} - Mirrored disk, which means data is written identically to two drives. The read operation could read one of two data blocks, but when the write operation occurred, it should write twice to enforce mirror character. High access time and reliability. Duplicating data leads to low storage utilization.
+ \item \textbf{RAID level2} - Using hamming code which requires several chips to check data. It is suitable for huge data transfers.\\[1em]
+ \textbf{Hamming Code parity} adds a single bit that indicates whether the number of 1 bits in the preceding data was even or odd. If the number of changed data is even, the check bit wii be valid. Otherwise, the error can detected at that time.
+ \item \textbf{RAID level3} - Using single check disk which contains ECC. Relative high performance and low reliability overhead.
+ \item \textbf{RAID level4} - Using independent read or write which use check disk every time. Files including small files may be distributed between multiple drives. Each drive operates independently, allowing I/O requests to be performed in parallel. Checking disk is bottleneck.
+ \item \textbf{RAID level5} - Distributing data and check information to all the disks to reduce check disk bottleneck. However, the write operation will cost actually four read and write operations.
+ \end{itemize}
+ \section*{3 Summary and Thoughts}
+ The paper introduced the development of the RAID technology from naive motivation to the comprehensive level five. I think the reliability is the issue that promotes the development of RAID. When we emphasize on reliability, the space utilization and access time will decrease. It is interesting to choose and design different check strategy to achieve higher performance.
+\end{document} 
