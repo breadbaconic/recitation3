@@ -1,4 +1,4 @@
-\documentclass[a4paper]{article}
+\documentclass[12pt]{article}
 \usepackage{geometry}
 \geometry{left=2.5cm,right=2.5cm,top=1.5cm,bottom=2.5cm}
   \title{Recitation 3} 
@@ -33,7 +33,13 @@
  \item \textbf{6} The reduce worker does it job and writes to each output.
  \item \textbf{7} The master wakes up user program.
  \end{itemize}
+ \section*{2.3~~~~Failure Tolerance}
  Except for main execution steps, the system deals with worker and master failure properly and skips bad records.
+ \section*{2.3.1~~~~Worker}
+ The master pings every worker periodically. Then the master re-execute the work on another worker with a mechanism. 
+ \section*{2.3.2~~~~Master}
+  Aborting the MapReduce computation if the master fails. But I wonder why not using checkpoint strategy instead of letting clients do it.
  \section*{3 Summary and Thoughts}
  Managing failure situation in the papers impresses me most. With the increasing of  the scale of modern system, the occurrence and importance of different kinds of failure beyonds my belief. In MapReduce, disk failure may happen every minute among thousands of disk. \\[1em]
+ The scalability of it is also impressive. When the some disks or machines are added to the whole system, there is only a few things to apply map-reduce to the new system, since the map-reduce does not need some very specific information and there is no strong link between each machine.
 \end{document} 
