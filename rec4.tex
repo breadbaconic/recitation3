@@ -18,5 +18,6 @@
  \item \textbf{RAID level5} - Distributing data and check information to all the disks to reduce check disk bottleneck. However, the write operation will cost actually four read and write operations.
  \end{itemize}
  \section*{3 Summary and Thoughts}
- The paper introduced the development of the RAID technology from naive motivation to the comprehensive level five. I think the reliability is the issue that promotes the development of RAID. When we emphasize on reliability, the space utilization and access time will decrease. It is all about trade-off to choose and design different check strategy to achieve higher performance. 
+ The paper introduced the development of the RAID technology from naive motivation to the comprehensive level five. I think the reliability is the issue that promotes the development of RAID. When we emphasize on reliability, the space utilization and access time will decrease. It is all about trade-off to choose and design different check strategy to achieve higher performance. \\[1em]
+ I think one of the basic strategies of RAID is that clustering several low-cost unit(inexpensive disks) to achieve high performance(high throughput) with breaking the side-effect of connection(reliability). In a similar way, we may apply this strategy to another field? we may cluster several relative small cpu unit to achieve high throughput or frequency with solving drawbacks such as performance lost in longer distance...
 \end{document} 
